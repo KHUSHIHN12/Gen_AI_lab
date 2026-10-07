@@ -1,0 +1,8 @@
+Unit 1: Basic SELECT queries
+- Projection, WHERE filtering, ORDER BY and LIMIT
+Unit 2: Aggregation
+- COUNT, SUM, AVG, GROUP BY and HAVING
+Unit 3: Joins
+- Inner join and left outer join
+Unit 4: Advanced SQL
+- Correlated subqueries, EXISTS and window functions (RANK, OVER)

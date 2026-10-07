@@ -1,0 +1,17 @@
+DBMS Laboratory Syllabus (sample)
+# Format per line:  Topic | SQL concepts | difficulty (easy/medium/hard) | learning objective
+Selection and Filtering | SELECT, WHERE, AND | easy | Retrieve rows that satisfy several conditions
+Sorting and Limiting | ORDER BY, LIMIT | easy | Order results and fetch top-N rows
+Range and Pattern Search | BETWEEN, IN, LIKE | easy | Use range, list and pattern predicates
+Aggregate Functions | COUNT, SUM, AVG, MAX | easy | Summarise a set of rows
+Grouping | GROUP BY, HAVING | medium | Summarise per group and filter groups
+Joins | INNER JOIN | medium | Combine rows of related tables
+Outer Joins | LEFT JOIN | medium | Keep unmatched rows and detect missing relationships
+Subqueries | SUBQUERY | medium | Use nested queries as values
+Correlated Subqueries | CORRELATED SUBQUERY, EXISTS | hard | Write queries that depend on the outer row
+Set Operations | UNION, INTERSECT, EXCEPT | medium | Combine result sets
+Window Functions | RANK, OVER, PARTITION BY | hard | Rank and accumulate within partitions
+Conditional Expressions | CASE | medium | Derive classes with CASE
+Data Manipulation | INSERT, UPDATE, DELETE | medium | Change table data safely
+Views | VIEW | medium | Create reusable virtual tables
+Schema Definition | CREATE TABLE, PRIMARY KEY, NOT NULL | medium | Define tables with constraints

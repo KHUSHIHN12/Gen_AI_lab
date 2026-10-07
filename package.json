@@ -1,0 +1,36 @@
+{
+  "name": "ai-dbms-lab",
+  "version": "1.0.0",
+  "description": "AI-Enabled Virtual DBMS Laboratory - secure, syllabus-aligned platform for fair, automated SQL assessment",
+  "private": true,
+  "main": "server/index.js",
+  "scripts": {
+    "start": "node server/index.js",
+    "dev": "node --watch server/index.js",
+    "test": "node tests/smoke.js",
+    "lockdown": "cd lockdown-browser && npm start",
+    "test:ui": "node tests/ui-smoke.js",
+    "test:all": "node tests/smoke.js && node tests/ui-smoke.js",
+    "start:env": "node --env-file=.env server/index.js"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "bcryptjs": "^3.0.3",
+    "codemirror": "^5.65.18",
+    "express": "^5.2.1",
+    "htm": "^3.1.1",
+    "jsonwebtoken": "^9.0.3",
+    "mammoth": "^1.13.0",
+    "multer": "^2.4.0",
+    "pdf-parse": "^1.1.1",
+    "qrcode": "^1.5.4",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "sql.js": "^1.14.2"
+  },
+  "devDependencies": {
+    "jsdom": "^29.1.1"
+  }
+}

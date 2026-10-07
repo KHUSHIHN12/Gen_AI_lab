@@ -1,0 +1,14 @@
+{
+  "name": "dbms-lab-lockdown-browser",
+  "version": "1.0.0",
+  "description": "Safe exam browser for the AI-Enabled Virtual DBMS Laboratory (assessment sessions)",
+  "main": "main.js",
+  "private": true,
+  "scripts": {
+    "start": "electron .",
+    "package": "npx electron-packager . DBMSLabLockdown --overwrite --out dist"
+  },
+  "devDependencies": {
+    "electron": "^33.0.0"
+  }
+}

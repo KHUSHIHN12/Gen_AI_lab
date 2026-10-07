@@ -1,0 +1,21 @@
+services:
+  dbmslab:
+    build: .
+    ports:
+      - "3000:3000"
+    environment:
+      INSTRUCTOR_PASSWORD: ${INSTRUCTOR_PASSWORD:-instructor123}
+      # students must type the server's LAN address; set it so the dashboard prints correct session URLs
+      # PUBLIC_BASE_URL: http://192.168.1.20:3000
+      AI_PROVIDER: ${AI_PROVIDER:-none}
+      AI_API_KEY: ${AI_API_KEY:-}
+      AI_MODEL: ${AI_MODEL:-gpt-4o-mini}
+      AI_BASE_URL: ${AI_BASE_URL:-https://api.openai.com/v1}
+      LOCKDOWN_STRICT: ${LOCKDOWN_STRICT:-false}
+      LOCKDOWN_SECRET: ${LOCKDOWN_SECRET:-dbms-lab-lockdown-secret}
+    volumes:
+      - dbmslab-data:/data
+    restart: unless-stopped
+
+volumes:
+  dbmslab-data:

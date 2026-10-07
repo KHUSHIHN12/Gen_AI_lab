@@ -1,0 +1,12 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>DBMS Lab Lockdown Browser</title>
+<style>body{font-family:system-ui,sans-serif;background:#0f172a;color:#fff;padding:28px}input{width:100%;padding:10px;font-size:16px;border-radius:6px;border:0;margin:10px 0}button{padding:10px 18px;font-size:16px;border:0;border-radius:6px;background:#3b5bdb;color:#fff;cursor:pointer}small{color:#9fb0d6}</style></head>
+<body><h2>🔒 DBMS Lab Lockdown Browser</h2>
+<p>Enter the assessment address shown in the lab room.</p>
+<input id="u" placeholder="http://192.168.1.10:3000/s/abc1234" autofocus>
+<button onclick="go()">Start secure assessment</button>
+<p><small>The browser will switch to full-screen kiosk mode and cannot be closed until you submit the test.</small></p>
+<script>
+function go(){var v=document.getElementById('u').value.trim();if(/^https?:\/\//i.test(v))launcher.start(v);else alert('Enter the full address starting with http://');}
+document.getElementById('u').addEventListener('keydown',function(e){if(e.key==='Enter')go();});
+</script></body></html>

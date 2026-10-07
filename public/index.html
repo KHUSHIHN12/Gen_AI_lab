@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI-Enabled Virtual DBMS Laboratory</title>
+<link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+<div id="root"></div>
+<script src="/vendor/react/react.production.min.js"></script>
+<script src="/vendor/react-dom/react-dom.production.min.js"></script>
+<script src="/vendor/htm/htm.umd.js"></script>
+<script src="/js/common.js"></script>
+<script>
+function Home() {
+  const [user, setUser] = useState(Api.user && Api.token && Api.user.role === 'instructor' ? Api.user : null);
+  const [code, setCode] = useState('');
+  useEffect(() => { if (user) location.href = '/instructor'; }, [user]);
+  const go = (e) => {
+    e.preventDefault();
+    const m = code.trim().match(/\/s\/([a-z0-9]+)/i) || [null, code.trim()];
+    if (m[1]) location.href = '/s/' + m[1].toLowerCase();
+  };
+  return html`<div className="center"><div style=${{ width: 'min(480px,100%)' }}>
+    <div className="card" style=${{ textAlign: 'center' }}>
+      <h1>🗄️ Virtual DBMS Laboratory</h1>
+      <p className="muted" style=${{ margin: 0 }}>AI-enabled, syllabus-aligned SQL practice and assessment</p>
+    </div>
+    <form className="card" onSubmit=${go}>
+      <h2>Student? Join your session</h2>
+      <p className="muted small">Scan the QR code or open the URL shown in the lab room. You register on that page. Or type the session code:</p>
+      <div className="row"><input className="grow" placeholder="Session code or URL" value=${code} onInput=${(e) => setCode(e.target.value)} />
+      <button className="btn primary">Join</button></div>
+    </form>
+    ${!user && html`<${AuthBox} title="Instructor login" roleHint="Instructor account only." onDone=${(u) => { if (u.role !== 'instructor') { Api.clear(); toast('Students log in from the session link', 'bad'); } else setUser(u); }} />`}
+  </div><${Toaster}/></div>`;
+}
+ReactDOM.createRoot(document.getElementById('root')).render(html`<${Home}/>`);
+</script>
+</body>
+</html>
